@@ -15,18 +15,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Add mobile menu functionality if needed
-const mobileMenu = () => {
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const menu = document.querySelector('.mobile-menu');
-  
-  if (menuBtn && menu) {
-    menuBtn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-  }
-};
-
 document.addEventListener('DOMContentLoaded', function() {
   // Instagram feed images (hardcoded from profile)
   const instagramPhotos = [
@@ -49,39 +37,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  mobileMenu();
-  addInstagramFeed();
-
-  // Inicialização do sidenav (menu móvel)
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, {
+  // Initialize sidenav (mobile menu) - Fixed implementation
+  var sidenavElems = document.querySelectorAll('.sidenav');
+  var sidenavInstances = M.Sidenav.init(sidenavElems, {
     edge: 'right',
     draggable: true,
     inDuration: 250,
     outDuration: 200
   });
+  
+  // Ensure sidenav trigger works properly - Fixed
+  document.querySelectorAll('.sidenav-trigger').forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetId = this.getAttribute('data-target');
+      var sidenavElement = document.getElementById(targetId.replace('#', ''));
+      if (sidenavElement) {
+        var instance = M.Sidenav.getInstance(sidenavElement);
+        if (instance) {
+          instance.open();
+        } else {
+          console.error('No sidenav instance found for ' + targetId);
+        }
+      } else {
+        console.error('Element not found: ' + targetId);
+      }
+    });
+  });
 
-  // Scroll suave para links de navegação
+  addInstagramFeed();
+
+  // Smooth scrolling for navigation links - Fixed implementation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      if (this.getAttribute('href').startsWith('#')) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId !== '#') {
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            // Fechar o sidenav se estiver aberto (em telas móveis)
-            var sidenavInstance = M.Sidenav.getInstance(document.querySelector('.sidenav'));
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      
+      if (targetId !== '#') {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          // Close the sidenav if it's open (on mobile)
+          var sidenavElement = document.querySelector('.sidenav');
+          if (sidenavElement) {
+            var sidenavInstance = M.Sidenav.getInstance(sidenavElement);
             if (sidenavInstance && sidenavInstance.isOpen) {
               sidenavInstance.close();
             }
-            
-            // Scroll suave para o elemento alvo
-            window.scrollTo({
-              top: targetElement.offsetTop - 60,
-              behavior: 'smooth'
-            });
           }
+          
+          // Smooth scroll to target element with offset for the fixed header
+          window.scrollTo({
+            top: targetElement.offsetTop - 60,
+            behavior: 'smooth'
+          });
         }
       }
     });
