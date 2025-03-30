@@ -117,30 +117,58 @@ nav .brand-logo {
     }
 }
 
-/* Hero Section - Modern Style without background image */
+/* Hero Section - Com imagem central e degradê na parte inferior */
 .hero {
     position: relative;
     min-height: 90vh;
-    background: linear-gradient(to right, var(--light-bg), #FFF);
+    background-color: #0a0906; /* Fundo preto */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--text-color);
+    color: white; /* Alterando cor do texto para branco */
     padding: 2rem;
     margin-top: 56px;
     overflow: hidden;
 }
 
-.hero::before {
-    content: '';
+.hero-image-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.hero-central-image {
+    width: 100%;
+    border-radius: 20px;
+    /* box-shadow: var(--box-shadow); */
+    display: block;
+}
+
+.hero-gradient-overlay {
     position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 50%, transparent 70%);
-    top: -50%;
-    left: -50%;
-    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35%; /* Aumentando para 35% */
+    /* background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent); */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay-text {
+    color: white;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-family: 'Urbanist', sans-serif;
+    background-color: var(--dark-bg); /* Fundo preto */
+    border-radius: 10px;
 }
 
 .hero-content {
@@ -174,8 +202,9 @@ nav .brand-logo {
     max-width: 800px;
     margin: 2rem auto;
     opacity: 0.9;
-    color: var(--accent-color);
+    color: white; /* Alterando cor do texto para branco */
     font-weight: 300;
+    display: none; /* Oculta por padrão em telas grandes */
 }
 
 .hero-decoration {
@@ -196,6 +225,25 @@ nav .brand-logo {
     bottom: -5rem;
     right: -3rem;
     transform: rotate(15deg);
+}
+
+/* Hero Media Queries */
+@media (max-width: 768px) {
+    .hero-image-container {
+        width: 95%;
+    }
+    
+    .hero-gradient-overlay {
+        height: 25%;
+    }
+    
+    .hero-overlay-text {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+    }
+    
+    .hero-subtitle {
+        display: block; /* Exibe apenas em dispositivos móveis */
+    }
 }
 
 /* Buttons */
