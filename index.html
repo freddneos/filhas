@@ -10,14 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #000;
-      color: white;
+      background-color: #f8f8f8; /* Light background */
+      color: #4a4a4a; /* Dark text */
       font-family: 'Urbanist', sans-serif;
     }
     .highlight {
-      background-color: #b6a443;
+      background-color: #c3b091; /* Gold highlight */
       padding: 0 4px;
       border-radius: 4px;
+      color: white;
     }
     .section {
       padding: 4rem 1rem;
@@ -35,59 +36,147 @@
       font-size: 28px;
     }
     footer {
-      background-color: #111;
+      background-color: #e0e0e0;
       padding: 2rem;
       text-align: center;
+      color: #555;
+    }
+    .card {
+      padding: 1rem;
+      background-color: #fff; /* White card background */
+    }
+    nav .brand-logo {
+      padding-left: 1rem;
+    }
+    nav ul a {
+      color: #c3b091; /* Gold text for navbar links */
+    }
+    .btn-custom {
+      background-color: #c3b091; /* Gold button */
+      color: white;
+    }
+    .btn-custom:hover {
+      background-color: #a79274; /* Darker gold on hover */
     }
   </style>
 </head>
 <body>
-  <header class="section center">
+
+  <div class="navbar-fixed">
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo" style="color:#c3b091;">Comunidade Filhas</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#comunidade">A Comunidade</a></li>
+          <li><a href="#youtube">YouTube</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#comunidade">A Comunidade</a></li>
+          <li><a href="#youtube">YouTube</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </div>
+
+  <header id="inicio" class="section center">
     <h4><span class="highlight">Deus</span> irá mexer nas suas raízes, <strong>prepare a terra!</strong></h4>
-    <h5 class="white-text">A <span class="highlight">Comunidade Filhas</span> é para você que...</h5>
+    <h5 class="grey-text text-darken-2">A <span class="highlight">Comunidade Filhas</span> é para você que...</h5>
   </header>
 
   <section class="section container">
-    <ul class="collection black-text">
-      <li class="collection-item black white-text">Sente-se sozinha, <strong>sem ninguém para compartilhar experiências</strong> e ajudá-la a vencer seus <span class="highlight">desafios</span>.</li>
-      <li class="collection-item black white-text"><strong>Vive em círculos a anos</strong>, cometendo os mesmos erros de sempre.</li>
-      <li class="collection-item black white-text">Sente-se confusa com as atitudes que <span class="highlight">deve</span> tomar para viver o que <span class="highlight">Deus</span> tem para você.</li>
-      <li class="collection-item black white-text">Não consegue se enxergar como <span class="highlight">Deus</span> a vê, tentando <span class="highlight">definir</span> sua identidade com base nas palavras de outros.</li>
-      <li class="collection-item black white-text">Sente-se <span class="highlight">dentro de</span> uma prisão, sem forças para <strong>avançar e reconstruir a sua própria história</strong>.</li>
-      <li class="collection-item black white-text">É refém das cobranças e expectativas impostas por outras pessoas.</li>
-    </ul>
+    <div class="row">
+      <div class="col s12 m8 offset-m2">
+        <ul class="collection">
+          <li class="collection-item">Sente-se sozinha, <strong>sem ninguém para compartilhar experiências</strong> e ajudá-la a vencer seus <span class="highlight">desafios</span>.</li>
+          <li class="collection-item"><strong>Vive em círculos a anos</strong>, cometendo os mesmos erros de sempre.</li>
+          <li class="collection-item">Sente-se confusa com as atitudes que <span class="highlight">deve</span> tomar para viver o que <span class="highlight">Deus</span> tem para você.</li>
+          <li class="collection-item">Não consegue se enxergar como <span class="highlight">Deus</span> a vê, tentando <span class="highlight">definir</span> sua identidade com base nas palavras de outros.</li>
+          <li class="collection-item">Sente-se <span class="highlight">dentro de</span> uma prisão, sem forças para <strong>avançar e reconstruir a sua própria história</strong>.</li>
+          <li class="collection-item">É refém das cobranças e expectativas impostas por outras pessoas.</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section class="section center">
+  <div class="divider"></div>
+
+  <section id="comunidade" class="section center">
     <h5 class="pink-text text-accent-2"><i class="fas fa-dove"></i> Chamado e Ministério</h5>
-    <p><span class="highlight">Desenvolva</span> um ministério frutífero sem esquecer da sua <span class="highlight">casa</span>.</p>
-    <h5 class="white-text">O que é a <span class="highlight">Comunidade Filhas</span>?</h5>
+    <p>
+      <span class="highlight">Desenvolva</span> um ministério frutífero sem esquecer da sua <span class="highlight">casa</span>.
+    </p>
+    <h5 class="grey-text text-darken-2">O que é a <span class="highlight">Comunidade Filhas</span>?</h5>
     <p>Plataforma de conexão, mentoria e cuidado para caminhar de mãos dadas por 12 meses.</p>
     <p class="yellow-text text-darken-2"><strong>+ De 230 aulas</strong> com PDFs, liberadas de segunda a sexta.</p>
-    <p class="white-text"><strong>Encontro ao vivo semanal</strong></p>
+    <p class="grey-text text-darken-2"><strong>Encontro ao vivo semanal</strong></p>
   </section>
+
+  <div class="divider"></div>
+
+  <section id="servicos" class="section center">
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <img src="https://via.placeholder.com/150" alt="Suelen Tozzi" class="circle responsive-img">
+        <h5 class="grey-text text-darken-2">Quem é Suelen Tozzi?</h5>
+        <p class="grey-text text-darken-2">Suelen tem levantado uma geração de mulheres improváveis que amam a presença <span class="highlight">de Deus</span>. Ministra com estilo simples, transparente e direto, promovendo reposicionamento e transformação.</p>
+        <p class="grey-text text-darken-2">Seu chamado é devolver às mulheres o seu lugar no <span class="highlight">casamento</span>, filhos, lar e <span class="highlight">destino</span>.</p>
+        <p class="grey-text text-darken-2">Alcança milhares <span class="highlight">de mulheres</span> através da <span class="highlight">Comunidade Filhas</span> em mais <span class="highlight">de dez</span> nações.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
 
   <section class="section center">
-    <img src="https://via.placeholder.com/150" alt="Suelen Tozzi" class="circle responsive-img">
-    <h5 class="white-text">Quem é Suelen Tozzi?</h5>
-    <p class="white-text">Suelen tem levantado uma geração de mulheres improváveis que amam a presença <span class="highlight">de Deus</span>. Ministra com estilo simples, transparente e direto, promovendo reposicionamento e transformação.</p>
-    <p class="white-text">Seu chamado é devolver às mulheres o seu lugar no <span class="highlight">casamento</span>, filhos, lar e <span class="highlight">destino</span>.</p>
-    <p class="white-text">Alcança milhares <span class="highlight">de mulheres</span> através da <span class="highlight">Comunidade Filhas</span> em mais <span class="highlight">de dez</span> nações.</p>
+    <a href="#" class="waves-effect waves-light btn-large btn-custom"><i class="material-icons right">group_add</i> Junte-se à Comunidade</a>
   </section>
 
-  <section class="section center yellow-text">
-    <h5><i class="fas fa-shield-heart"></i> Garantia INCONDICIONAL de 7 dias!</h5>
-    <p>Se não gostar, pode <span class="highlight">devolver</span> o valor investido sem perguntas ou aborrecimentos.</p>
+  <div class="carousel">
+    <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
+    <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
+    <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
+    <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
+    <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+  </div>
+
+  <div class="divider"></div>
+
+  <section id="youtube" class="section center">
+    <h5>Assista nossos vídeos no YouTube</h5>
+    <div class="row">
+      <div class="col s12 m4">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/OlC2Kq1I3Qg" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col s12 m4">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/z9Aq1XcIYqo" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col s12 m4">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/Y5NA0QnPjPE" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
   </section>
+
+  <div class="divider"></div>
 
   <footer>
-    <a href="https://casadeisabel.com.br" class="highlight">casadeisabel.com.br</a>
   </footer>
 
-  <a href="https://wa.me/SEUNUMEROAQUI" class="btn-whatsapp waves-effect waves-light">
+  <a href="https://wa.me/5519982148700?text=Quero%20fazer%20parte%20do%20Filhas!" class="btn-whatsapp waves-effect waves-light">
     <i class="fab fa-whatsapp white-text"></i>
   </a>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
+      var carousel = document.querySelectorAll('.carousel');
+      M.Carousel.init(carousel);
+    });
+  </script>
 </body>
 </html>
