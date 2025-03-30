@@ -92,6 +92,24 @@ nav .brand-logo {
     color: var(--primary-color);
 }
 
+/* Mobile Logo Styles */
+#logo-container {
+    display: block;
+}
+#logo-mobile {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    #logo-container {
+        display: none;
+    }
+    #logo-mobile {
+        display: block;
+        font-size: 1.3rem;
+    }
+}
+
 /* Hero Section - Modern Style without background image */
 .hero {
     position: relative;
@@ -323,12 +341,13 @@ section h2::after {
     margin-top: 0.3rem;
 }
 
-/* Benefits Grid */
+/* Benefits Grid (Community Section) - Improved 2x2 Grid */
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin: 3rem 0;
+    margin: 3rem auto;
+    max-width: 900px;
 }
 
 .benefit-card {
@@ -338,6 +357,22 @@ section h2::after {
     border-radius: var(--border-radius);
     transition: var(--transition);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.benefit-card p {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 0.95rem;
+}
+
+.benefit-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
 }
 
 .benefit-card:hover {
@@ -347,25 +382,19 @@ section h2::after {
 }
 
 .icon-circle {
-    width: 80px;
-    height: 80px;
-    background: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
-    box-shadow: var(--box-shadow);
+    margin-bottom: 1.5rem;
 }
 
 .icon-circle i {
-    font-size: 2rem;
-    color: white;
-}
-
-.benefit-card h3 {
-    margin-bottom: 1rem;
-    color: white;
+    font-size: 1.8rem;
+    color: var(--primary-color);
 }
 
 /* Why Reasons */
@@ -399,18 +428,31 @@ section h2::after {
     margin-bottom: 1.5rem;
 }
 
-/* Mentora Section */
+/* Mentora Section - Improved */
 .mentora-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: row;
     gap: 3rem;
     align-items: center;
 }
 
+.mentora-img {
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
+}
+
 .mentora-img img {
-    border-radius: var(--border-radius);
+    border-radius: 50%;
     box-shadow: var(--box-shadow);
     border: 4px solid var(--primary-color);
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.mentora-text {
+    flex: 0 0 70%;
 }
 
 .mentora-text h2 {
@@ -441,12 +483,19 @@ section h2::after {
     margin-bottom: 1.5rem;
 }
 
-/* Features Grid */
+/* Features Grid (How it works) - 2 on top, 3 on bottom */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin: 3rem 0;
+    margin: 3rem 0 2rem;
+}
+
+.features-bottom-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 .feature-card {
@@ -457,22 +506,20 @@ section h2::after {
     transition: var(--transition);
     text-align: center;
     border: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .feature-card i {
     font-size: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.feature-card h3 {
-    margin-bottom: 1rem;
-    color: var(--primary-color);
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
 }
 
 /* Bonus Section */
@@ -515,7 +562,7 @@ section h2::after {
     color: var(--light-bg);
 }
 
-/* Pricing Grid */
+/* Pricing Grid - Fixed Position Buttons */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -533,6 +580,9 @@ section h2::after {
     box-shadow: var(--box-shadow);
     position: relative;
     color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 450px;
 }
 
 .price-card:hover {
@@ -545,17 +595,9 @@ section h2::after {
     color: var(--primary-color);
 }
 
-.price {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin: 1.5rem 0;
-}
-
-.price-save {
-    color: #16A34A;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
+.price-card-content {
+    flex-grow: 1;
+    margin-bottom: 2rem;
 }
 
 .price-card ul {
@@ -567,12 +609,19 @@ section h2::after {
 .price-card li {
     margin-bottom: 0.8rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .price-card li i {
     color: var(--primary-color);
     margin-right: 0.5rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+}
+
+.price-card .cta-button {
+    margin-top: auto;
+    width: 100%;
 }
 
 .featured {
@@ -698,14 +747,54 @@ footer {
 }
 
 /* Media Queries */
+@media (max-width: 992px) {
+    .features-bottom-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .benefit-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .benefit-card p {
+        font-size: 0.9rem;
+    }
+    
+    #logo-container {
+        display: none;
+    }
+    #logo-mobile {
+        display: block;
+        font-size: 1.3rem;
+    }
+}
+
 @media (max-width: 768px) {
     :root {
         --spacing: 2rem;
     }
     
-    .mentora-grid,
-    .benefits-grid,
-    .features-grid,
+    .mentora-grid {
+        flex-direction: column;
+    }
+    
+    .mentora-img {
+        margin-bottom: 2rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-bottom-row {
+        grid-template-columns: 1fr;
+    }
+    
     .pricing-grid {
         grid-template-columns: 1fr;
     }
@@ -740,5 +829,25 @@ footer {
     .mentora-text h2::after {
         left: 50%;
         transform: translateX(-50%);
+    }
+    
+    /* Centralizar botões CTA no mobile */
+    .cta-button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        max-width: 80%;
+    }
+    
+    .mentora-text .cta-button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-mid {
+        display: flex;
+        justify-content: center;
     }
 }
