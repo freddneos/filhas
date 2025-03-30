@@ -27,7 +27,7 @@ const mobileMenu = () => {
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
   // Instagram feed images (hardcoded from profile)
   const instagramPhotos = [
     'https://instagram.fpoa40-1.fna.fbcdn.net/v/t51.2885-15/411289838_18305091456344188_4603339404465474758_n.jpg',
@@ -52,19 +52,31 @@ document.addEventListener('DOMContentLoaded', () => {
   mobileMenu();
   addInstagramFeed();
 
-  // Initialize mobile navigation
-  const sidenav = document.querySelectorAll('.sidenav');
-  M.Sidenav.init(sidenav);
+  // Inicialização do sidenav (menu móvel)
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, {
+    edge: 'right',
+    draggable: true,
+    inDuration: 250,
+    outDuration: 200
+  });
 
-  // Smooth scrolling for navigation links
+  // Scroll suave para links de navegação
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
       if (this.getAttribute('href').startsWith('#')) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         if (targetId !== '#') {
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
+            // Fechar o sidenav se estiver aberto (em telas móveis)
+            var sidenavInstance = M.Sidenav.getInstance(document.querySelector('.sidenav'));
+            if (sidenavInstance && sidenavInstance.isOpen) {
+              sidenavInstance.close();
+            }
+            
+            // Scroll suave para o elemento alvo
             window.scrollTo({
               top: targetElement.offsetTop - 60,
               behavior: 'smooth'
