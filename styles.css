@@ -26,6 +26,13 @@ body {
     overflow-x: hidden;
 }
 
+/* Added cursive font class */
+.cursive {
+    font-family: 'Parisienne', cursive;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
 .container {
     width: 92%;
     max-width: 1280px;
@@ -141,13 +148,6 @@ nav .brand-logo {
     z-index: 5;
     max-width: 900px;
     margin: 0 auto;
-}
-
-.hero-logo {
-    max-width: 220px;
-    margin-bottom: 2rem;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-    border-radius: 10px;
 }
 
 .hero h1 {
@@ -802,10 +802,6 @@ footer {
     .hero {
         padding: 1rem;
         min-height: 80vh;
-    }
-    
-    .hero-logo {
-        max-width: 180px;
     }
     
     .featured {
